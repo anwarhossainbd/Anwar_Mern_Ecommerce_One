@@ -1,25 +1,57 @@
-import React, { Fragment } from 'react' ;
+import React, { Fragment ,useEffect} from 'react' ;
 import "./Home.css";
 import Product from "./Product.js"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import MetaData from '../layout/MetaData';
 
-const product ={
-  name:"Blue Tshirt",
-  images:[{url:"https://i.ibb.co/DRST11n/1.webp"}] ,
-  price:"3000",
-  _id:"anwar"
-}
+import { getProduct } from '../../actions/productAction';
+import {useSelector,useDispatch} from "react-redux"
+import Loader from '../layout/Loader/Loader';
+import { useAlert } from 'react-alert';
+
 
 
 const Home = () => {
+
+const alert=useAlert()
+
+const dispatch=useDispatch();
+
+const {products,loading,error,productsCount} =useSelector(
+  (state)=>state.products
+)
+
+  useEffect(()=>{
+
+    if(error){
+      return alert.error(error)
+    }
+
+    dispatch(getProduct())
+
+  },[dispatch,error,alert])
+
+
   return (
+   <Fragment>
+   
+   {loading ? (
+     <Loader />
+   ):(
     <Fragment>
+
+    <MetaData title="Ecommerce" />
+
+
       <div className="banner">
          <p>Welcome to Ecommerce</p>
          <h1>Find Amazing Products Below</h1>
 
          <a href="#container">
              <button>
-                Go Down 
+                 Scroll     <FontAwesomeIcon icon={faArrowDown} />
+
              </button>
          </a>
       </div>
@@ -29,11 +61,16 @@ const Home = () => {
 
       <div className="container" id="container">
       
-      <Product product={product} />
+     {products && products.map(product=>(
+       <Product product={product} />
+     ))}
 
       </div>
 
     </Fragment>
+   )}
+   
+   </Fragment>
   )
 }
 
