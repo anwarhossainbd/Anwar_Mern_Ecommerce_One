@@ -116,6 +116,11 @@
     transform: translateY(-1vmax);
 }
 
+.imgStyle{
+    height: 220px ;
+    width: 270px ;
+    
+}
 
 @media screen and (max-width:600){
 
@@ -136,4 +141,13 @@
        margin: 0 0.5vmax;
        font:300 1vmax "Roboto"
     }
+
+
+    .imgStyle{
+        height: 100px ;
+        width: 180px ;
+        
+    }
 }
+
+

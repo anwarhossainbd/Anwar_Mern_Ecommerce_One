@@ -10,3 +10,68 @@
     text-decoration: none;
     font-size: 13px !important;
 }
+
+
+
+.navTitle{
+    font-family: 'Montserreat',sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: yellow !important;
+    text-decoration: none !important;
+    padding-left: 60px;
+}
+
+.navTitleScroll{
+    font-family: 'Montserreat',sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: dodgerblue !important;
+    text-decoration: none !important;
+    padding-left: 60px;
+
+}
+
+.navBackground{
+    -webkit-transition:  background-color 300ms linear;
+    -moz-transition:background-color 300ms linear;
+    -o-transition: background-color 300ms linear;
+    transition: background-color 300ms linear;
+    background: rgba(4, 173, 159, 0) !important;
+}
+
+.navBackgroundScroll{
+    -webkit-transition:  background-color 300ms linear;
+    -moz-transition:background-color 300ms linear;
+    -o-transition: background-color 300ms linear;
+    transition: background-color 300ms linear;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 5px 0 rgba(0,115,230,0.5) ;
+}
+
+
+.navLetter{
+    font-family: 'Raleway',sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: #1fd6d6 ;
+    text-decoration: none !important;
+}
+
+.navLetterScroll{
+    font-family: 'Raleway',sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: rgb(19, 2, 2)  ;
+    text-decoration: none !important;
+}
+
+.SecondDiv{
+
+    margin-right: 90px;
+    font-size: 1.8rem;
+}
+
+.navIcon{
+    color: red;
+}
