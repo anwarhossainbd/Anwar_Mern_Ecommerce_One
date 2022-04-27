@@ -27,7 +27,7 @@ const Products = ({match}) => {
   const dispatch =useDispatch() ;
 
   const [currentPage, setCurrentPage] = useState(1) ;
-  const [price,setPrice]=useState([0,25000]);
+  const [price,setPrice]=useState([1000,50000]);
   const [category,setCategory]=useState();
 
   const [ratings,setRatings]=useState(0);
@@ -93,8 +93,8 @@ const Products = ({match}) => {
      onChange={priceHandler}
      valueLabelDisplay="auto"
      aria-labelledby='range-slider'
-     min={0}
-     max={25000} />
+     min={1000}
+     max={50000} />
 
 
      <Typography>Categories</Typography>

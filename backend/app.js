@@ -1,11 +1,14 @@
 const express=require("express")
 const app=express();
 const cookieparser=require("cookie-parser")
-
+const fileUpload=require("express-fileupload")
+const bodyParser=require("body-parser")
 const errorMiddleware =require("./middleware/error")
 
 app.use(express.json())
 app.use(cookieparser())
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(fileUpload());
 
 //Route Imports
 const product=require("./routes/productRoute");

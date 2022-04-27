@@ -17,7 +17,7 @@
     font-family: 'Montserreat',sans-serif;
     font-weight: 600;
     font-size: 20px;
-    color: yellow !important;
+    color: deeppink !important;
     text-decoration: none !important;
     padding-left: 60px;
 }
@@ -37,7 +37,7 @@
     -moz-transition:background-color 300ms linear;
     -o-transition: background-color 300ms linear;
     transition: background-color 300ms linear;
-    background: rgba(4, 173, 159, 0) !important;
+    background: black;
 }
 
 .navBackgroundScroll{
@@ -46,7 +46,7 @@
     -o-transition: background-color 300ms linear;
     transition: background-color 300ms linear;
     background: rgb(255, 255, 255);
-    box-shadow: 0 0 5px 0 rgba(0,115,230,0.5) ;
+    box-shadow: 0 0 5px 0 rgba(12, 0, 0, 0.911) ;
 }
 
 
@@ -75,3 +75,6 @@
 .navIcon{
     color: red;
 }
+
+
+

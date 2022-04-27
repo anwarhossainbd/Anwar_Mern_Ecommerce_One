@@ -8,6 +8,7 @@ import Loader from '../layout/Loader/Loader';
 import { useAlert } from 'react-alert';
 import MetaData from "../layout/MetaData"
 
+import Carousel from "react-material-ui-carousel";
 
 
 
@@ -58,7 +59,7 @@ const ProductDetails = ({match}) => {
   
       <div>
        
-       
+      <Carousel>
       {product.images &&
         product.images.map((item, i) => (
           <img
@@ -70,8 +71,7 @@ const ProductDetails = ({match}) => {
         ))}
       
     
-        
-        
+        </Carousel>        
       </div>
   
   
