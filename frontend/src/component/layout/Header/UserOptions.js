@@ -5,11 +5,17 @@ import DashboardIcon from "@material-ui/icons/Dashboard";
 import PersonIcon from "@material-ui/icons/Person";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp"
 import ListAltIcon from "@material-ui/icons/ListAlt"
-
-
+import  Backdrop  from '@material-ui/core/Backdrop';
+import {useHistory} from "react-router-dom"
+import {useAlert} from "react-alert" ;
+import {logout} from "../../../actions/userAction"
+import { useDispatch } from 'react-redux';
 
 const UserOptions = ({user}) => {
   const [open,setOpen] =useState(false);
+  const history=useHistory();
+  const alert =useAlert()
+  const dispatch =useDispatch() ;
 
   const options =[
     {icon:<ListAltIcon />, name:"Orders",func:orders},
@@ -18,7 +24,7 @@ const UserOptions = ({user}) => {
   ]
 
   if(user.role==="admin"){
-    options.unshift({icon:<DashboardIcon />, name:"dashboard"}, func:dashboard)
+    options.unshift({icon:<DashboardIcon />, name:"dashboard", func:dashboard})
   }
 
   
@@ -41,11 +47,15 @@ const UserOptions = ({user}) => {
 
   return (
     <Fragment>
+
+    <Backdrop open={open} style={{zIndex:"10"}} />
+
        <SpeedDial ariaLabel="SpeedDial tooltip example" 
        onClose={()=>setOpen(false)}
        onOpen={()=>setOpen(true)}
        open={open}
        direction="down"
+       className="speedDial"
        icon={
          <img className="speedDialIcon"
          src={user.avatar.url? user.avatar.url:"/Profile.png"}
@@ -53,7 +63,12 @@ const UserOptions = ({user}) => {
        } 
        >
 
-         <SpeedDialAction icon={<DashboardIcon />} tooltipTitle="Dashboard" />
+       {options.map((item)=>(
+
+        <SpeedDialAction key={item.name} icon={item.icon} tooltipTitle={item.name} onClick={item.func} />
+
+       ))}
+
        
        </SpeedDial>
     </Fragment>

@@ -43,7 +43,7 @@ const {products,loading,error} =useSelector(
    ):(
     <Fragment>
 
-    <MetaData title="Ecommerce" />
+    <MetaData title="Home" />
 
 
       <div className="banner">

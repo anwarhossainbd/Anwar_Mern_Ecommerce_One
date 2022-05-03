@@ -76,5 +76,17 @@
     color: red;
 }
 
+.speedDial{
+    position: fixed;
+    right: 3vmax;
+    top: 4vmax;
+}
 
+
+.speedDialIcon{
+    width: 52px;
+    height: 52px;
+    border-radius: 100%;
+    
+}
 

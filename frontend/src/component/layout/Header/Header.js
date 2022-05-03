@@ -75,7 +75,7 @@ const Header = () => {
 
        <Nav.Link><NavLink exact={true} activeStyle={{color:"deeppink"}} className={changed.navIcon}  to="/search"> <FontAwesomeIcon icon={faSearch}  />    </NavLink></Nav.Link>
 
-       {isAuthenticated ==false ?
+       {isAuthenticated !==true ?
         <Nav.Link><NavLink exact={true} activeStyle={{color:"deeppink"}} className={changed.navBarLetter}  to="/login"> LOGIN    </NavLink></Nav.Link> :""
 
       
