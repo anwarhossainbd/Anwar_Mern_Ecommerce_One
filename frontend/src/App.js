@@ -17,7 +17,8 @@ import Profile from "./component/User/Profile.js"
 import ProtectedRouter from './component/Route/ProtectedRouter';
 import UpdateProfile from "./component/User/UpdateProfile.js"
 import UpdatePassword from "./component/User/UpdatePassword.js"
-
+import ForgotPassword from "./component/User/ForgotPassword.js"
+import ResetPassword from "./component/User/ResetPassword.js"
 
 function App() {
 
@@ -59,6 +60,10 @@ function App() {
           <ProtectedRouter path="/account" exact={true} component={Profile}/>
           <ProtectedRouter path="/me/update" exact={true} component={UpdateProfile}/>
           <ProtectedRouter path="/password/update" exact={true} component={UpdatePassword}/>
+
+
+          <Route path="/password/forgot" exact={true} component={ForgotPassword}/>
+          <Route path="/password/reset/:token" exact={true} component={ResetPassword}/>
 
 
           <Route exact path="/login" component={LoginSignUp} />

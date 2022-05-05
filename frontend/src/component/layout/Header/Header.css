@@ -37,7 +37,7 @@
     -moz-transition:background-color 300ms linear;
     -o-transition: background-color 300ms linear;
     transition: background-color 300ms linear;
-    background: black;
+    background: black !important;
 }
 
 .navBackgroundScroll{
@@ -45,7 +45,7 @@
     -moz-transition:background-color 300ms linear;
     -o-transition: background-color 300ms linear;
     transition: background-color 300ms linear;
-    background: rgb(255, 255, 255);
+    background: rgb(255, 255, 255) !important;
     box-shadow: 0 0 5px 0 rgba(12, 0, 0, 0.911) ;
 }
 
@@ -86,7 +86,15 @@
 .speedDialIcon{
     width: 52px;
     height: 52px;
-    border-radius: 100%;
-    
+    border-radius: 100%;  
+}
+
+@media screen and (max-width: 900px) {
+
+    .speedDial{
+       
+        right: 4vmax;
+        top: 9vmax;
+    }
 }
 

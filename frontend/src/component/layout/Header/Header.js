@@ -21,28 +21,15 @@ const Header = () => {
          navBackground:"navBackground",
       
          navBarLetter :"navLetter",
-         variant:"dark" ,
+        
          navIcon:"navIcon"
 
         })
 
 
 
-
-
-
-  window.onScroll=()=>{
-    if (window.scrollY>100){
-      setChanged({variant:"light", NavTitle:"navTitleScroll",navBackground:"navBackgroundScroll",navBarLetter:"navLetterScroll",navIcon:"navIconScroll"})
-    }
-    else if (window.scrollY<100){
-      setChanged({variant:"dark", NavTitle:"navTitle",navBackground:"navBackground",navBarLetter:"navLetter",navIcon:"navIcon" })
-    }
-}
-
-
   return (
-    <Navbar  collapseOnSelect className={changed.navBackground} fixed="top" expand="lg"  variant={changed.dark} >
+    <Navbar  collapseOnSelect className={changed.navBackground} fixed="top" expand="lg"  variant="dark" >
     <Container fluid>
       <Navbar.Brand href="#home"  className={changed.NavTitle} >Ecommerce </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
@@ -126,8 +113,6 @@ export default Header
 
 // class Header extends Component {
 
-
-
 //   constructor() {
 //     super();
 //     this.state={
@@ -138,7 +123,10 @@ export default Header
 //         navBarLetter :"navLetter",
 //         variant:"dark" ,
 //         navIcon:"navIcon"
-//     }
+//     },
+    
+
+
 // }
 
 
@@ -160,8 +148,6 @@ export default Header
 
 
 // render(){
-
-
 
 
 //   return (
@@ -199,7 +185,8 @@ export default Header
 
 //              <Nav.Link><NavLink exact={true} activeStyle={{color:"deeppink"}} className={this.state.navIcon}  to="/search"> <FontAwesomeIcon icon={faSearch}  />    </NavLink></Nav.Link>
 
-//              <Nav.Link><NavLink exact={true} activeStyle={{color:"deeppink"}} className={this.state.navBarLetter}  to="/login"> LOGIN    </NavLink></Nav.Link>
+//              {isAuthenticated !==true ?
+//              <Nav.Link><NavLink exact={true} activeStyle={{color:"deeppink"}} className={this.state.navBarLetter}  to="/login"> LOGIN    </NavLink></Nav.Link> :"" }
 
 //              </Nav>
             
