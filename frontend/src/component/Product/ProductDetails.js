@@ -1,7 +1,8 @@
-import React, { Fragment ,useEffect} from 'react'
+import React, { Fragment ,useEffect,useState} from 'react'
 import "./ProductDetails.css";
 import {useSelector,useDispatch} from "react-redux"
 import { clearErrors, getProductDetails } from '../../actions/productAction';
+import {addItemsToCart} from "../../actions/cartAction"
 import ReactStars from 'react-rating-stars-component';
 import ReviewCard from "./ReviewCard.js"
 import Loader from '../layout/Loader/Loader';
@@ -19,6 +20,25 @@ const ProductDetails = ({match}) => {
   const alert=useAlert();
 
   const {product,loading,error}=useSelector(state=>state.productDetails)
+
+  const [quantity, setQuantity] = useState(1)
+
+  const increaseQuantity=()=>{
+    if(product.Stock<=quantity) return ;
+    const qty=quantity+1 ;
+    setQuantity(qty)
+  }
+
+  const decreaseQuantity=()=>{
+    if(1 >=quantity) return ;
+    const qty=quantity-1 ;
+    setQuantity(qty)
+  }
+
+  const addToCartHandler =()=>{
+    dispatch(addItemsToCart(match.params.id,quantity));
+    alert.success('Item added to cart')
+  }
 
   useEffect(() => {
 
@@ -92,16 +112,16 @@ const ProductDetails = ({match}) => {
   
                   <div className="detailsBlock-3-1-1">
   
-                      <button>-</button>
-                      <input value="1" type="number" />
-                      <button>+</button>
-                  </div> {" "}
-                  <button>Add to Cart</button>
+                      <button onClick={decreaseQuantity}>-</button>
+                      <input readOnly value={quantity} type="number" />
+                      <button onClick={increaseQuantity}>+</button>
+                  </div> 
+                  <button onClick={addToCartHandler} >Add to Cart</button>
                   
                 </div>
   
                 <p>
-                  Status:{" "}
+                  Status:
                   <b className={product.Stock<1 ? "redColor" : "greenColor"}>
                       {product.Stock <1 ? "OutOfStock" : "InStock"}
                   </b>

@@ -16,7 +16,7 @@
 .navTitle{
     font-family: 'Montserreat',sans-serif;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 24px;
     color: deeppink !important;
     text-decoration: none !important;
     padding-left: 60px;
@@ -25,7 +25,7 @@
 .navTitleScroll{
     font-family: 'Montserreat',sans-serif;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 24px;
     color: dodgerblue !important;
     text-decoration: none !important;
     padding-left: 60px;
@@ -53,7 +53,7 @@
 .navLetter{
     font-family: 'Raleway',sans-serif;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 17px;
     color: #1fd6d6 ;
     text-decoration: none !important;
 }
@@ -61,9 +61,15 @@
 .navLetterScroll{
     font-family: 'Raleway',sans-serif;
     font-weight: 500;
-    font-size: 15px;
+    margin-top: 5px;
+    font-size: 17px;
     color: rgb(19, 2, 2)  ;
     text-decoration: none !important;
+}
+
+.logoClass{
+    font-weight: 700;
+    font-size: 20px;
 }
 
 .SecondDiv{

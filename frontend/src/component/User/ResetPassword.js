@@ -3,26 +3,24 @@ import "./ResetPassword.css"
 import Loader from "../layout/Loader/Loader";
 import {useSelector,useDispatch} from "react-redux"
 import { useAlert } from 'react-alert';
-import {clearErrors,updatePassword} from "../../actions/userAction"
-import { UPDATE_PASSWORD_RESET } from '../../constants/userConstants';
+import {clearErrors,resetPassword} from "../../actions/userAction"
 import MetaData from "../layout/MetaData"
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import LockIcon from "@material-ui/icons/Lock"
-import VpnKeyIcon from "@material-ui/icons/VpnKey"
 
-const ResetPassword = () => {
+const ResetPassword = ({history,match}) => {
 
 
     const dispatch=useDispatch() ;
     const alert =useAlert() ;
 
-    const {error,isUpdated,loading} =useSelector(state=>state.profile)
+    const {error,success,loading} =useSelector(state=>state.forgotPassword)
 
     const [password,setPassword]=useState("") ;
     const [confirmPassword,setConfirmPassword]=useState("") ;
 
 
-    const updatePasswordSubmit=(e)=>{
+    const resetPasswordSubmit=(e)=>{
         e.preventDefault();
     
         const myForm =new FormData();
@@ -30,7 +28,7 @@ const ResetPassword = () => {
         myForm.set("password",password) ;
         myForm.set("confirmPassword",confirmPassword);
     
-        dispatch(updatePassword(myForm))
+        dispatch(resetPassword(match.params.token,myForm))
     
       }
 
@@ -43,18 +41,14 @@ const ResetPassword = () => {
           dispatch(clearErrors())
         }
     
-        if(isUpdated){
-         alert.success("Profile Updated Successfully")
+        if(success){
+         alert.success("Password Updated Successfully")
         
-         history.push("/account")
-
-         dispatch({
-             type:UPDATE_PASSWORD_RESET
-         })
+         history.push("/login")
 
         }
        
-      }, [dispatch,error,alert,history,isUpdated])
+      }, [dispatch,error,alert,history,success])
 
 
   return (
@@ -63,37 +57,25 @@ const ResetPassword = () => {
 
       <MetaData title="Change Password" />
 
-       <div className="updatePasswordContainer">
-           <div className='updatePasswordBox'>
-              <h2 className="updatePasswordHeading">Update Password</h2>
+       <div className="resetPasswordContainer">
+           <div className='resetPasswordBox'>
+              <h2 className="resetPasswordHeading">Update Password</h2>
 
-              <form className='updatePasswordForm'   onSubmit={updatePasswordSubmit}>
-           
-                  
-                    <div className='loginPassword'>
-                    <VpnKeyIcon />
-        
-                    <input type="password"
-                    placeholder="Old Password"
-                    required
-                    value={oldPassword}
-                    onChange={(e)=>setOldPassword(e.target.value)}
-                    />
-                    </div>
-
-                    <div className='loginPassword'>
-                    <LockOpenIcon />
-        
-                    <input type="password"
-                     placeholder="New Password"
-                     required
-                     value={newPassword}
-                     onChange={(e)=>setNewPassword(e.target.value)}
-                    />
+              <form className='resetPasswordForm'   onSubmit={resetPasswordSubmit}>
+                
+                <div >
+                      <LockOpenIcon />
+          
+                      <input type="password"
+                      placeholder="New Password"
+                      required
+                      value={password}
+                      onChange={(e)=>setPassword(e.target.value)}
+                      />
                   </div>
 
 
-                  <div className='loginPassword'>
+                  <div >
                   <LockIcon />
       
                   <input type="password"
@@ -107,7 +89,7 @@ const ResetPassword = () => {
 
        
        
-                   <input type="submit" value="Change Password" className="updatePasswordBtn"  />
+                   <input type="submit" value="Update" className="resetPasswordBtn"  />
        
  
  

@@ -4,6 +4,7 @@ import {Container, Nav, Navbar} from "react-bootstrap";
 import {NavLink} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 
 
@@ -60,13 +61,14 @@ const Header = () => {
        navbarScroll
      >
 
-       <Nav.Link><NavLink exact={true} activeStyle={{color:"deeppink"}} className={changed.navIcon}  to="/search"> <FontAwesomeIcon icon={faSearch}  />    </NavLink></Nav.Link>
+       <Nav.Link><NavLink exact={true} activeStyle={{color:"deeppink"}} className="logoClass"  to="/search"> <FontAwesomeIcon icon={faSearch}  />    </NavLink></Nav.Link>
+
+       <Nav.Link><NavLink exact={true} activeStyle={{color:"deeppink"}} className="logoClass"  to="/Cart"> <FontAwesomeIcon icon={faShoppingBag}  />    </NavLink></Nav.Link>
+
 
        {isAuthenticated !==true ?
         <Nav.Link><NavLink exact={true} activeStyle={{color:"deeppink"}} className={changed.navBarLetter}  to="/login"> LOGIN    </NavLink></Nav.Link> :""
 
-      
-      
       }
 
        </Nav>
