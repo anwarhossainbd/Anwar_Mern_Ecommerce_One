@@ -5,11 +5,10 @@ import { Container} from "react-bootstrap";
 import {useSelector,useDispatch} from "react-redux"
 import { addItemsToCart,removeItemsFromCart } from '../../actions/cartAction';
 import { Link } from 'react-router-dom';
-import Typography from "@material-ui/core";
-import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart"
-import {Link} from "react-router-dom"
+import {Typography} from "@material-ui/core";
+import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
 
-const Cart = () => {
+const Cart = ({history}) => {
 
     const dispatch =useDispatch();
     const {cartItems} =useSelector(state=>state.cart)
@@ -34,6 +33,11 @@ const Cart = () => {
 
     const deleteCartItems =(id)=>{
         dispatch(removeItemsFromCart(id)) ;
+    }
+
+
+    const checkoutHandler =()=>{
+        history.push("/login?redirect=shipping")
     }
 
 
@@ -89,14 +93,14 @@ const Cart = () => {
                <div></div>
                <div className="cartGrossProfitBox">
                    <p>Gross Total</p>
-                   <p>{`$600`}</p>
+                   <p>{`${cartItems.reduce((acc,item)=>acc+item.quantity*item.price,0)}`}</p>
                </div>
     
     
                <div></div>
     
                <div className='checkOutBtn'>
-                   <button> Check Out</button>
+                   <button onClick={checkoutHandler}> Check Out</button>
                </div>
     
            </div>

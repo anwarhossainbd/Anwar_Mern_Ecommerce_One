@@ -20,6 +20,7 @@ import UpdatePassword from "./component/User/UpdatePassword.js"
 import ForgotPassword from "./component/User/ForgotPassword.js"
 import ResetPassword from "./component/User/ResetPassword.js"
 import Cart from "./component/Cart/Cart.js"
+import Shipping from "./component/Cart/Shipping.js"
 
 function App() {
 
@@ -70,6 +71,9 @@ function App() {
           <Route exact path="/login" component={LoginSignUp} />
 
           <Route exact path="/cart" component={Cart} />
+
+          <ProtectedRouter path="/shipping" exact={true} component={Shipping}/>
+
 
 
       </Switch>

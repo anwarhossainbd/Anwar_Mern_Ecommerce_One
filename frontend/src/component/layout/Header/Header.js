@@ -14,6 +14,7 @@ import "./Header.css"
 const Header = () => {
 
   const {isAuthenticated}=useSelector(state=>state.user)
+  const {cartItems} =useSelector(state=>state.cart)
 
 
     const [changed, setChanged] = useState( {
@@ -52,9 +53,6 @@ const Header = () => {
         </Nav>
 
 
-
-      
-
        <Nav
        className=" my-2 my-lg-0"
        style={{ maxHeight: '80px' }}
@@ -63,11 +61,20 @@ const Header = () => {
 
        <Nav.Link><NavLink exact={true} activeStyle={{color:"deeppink"}} className="logoClass"  to="/search"> <FontAwesomeIcon icon={faSearch}  />    </NavLink></Nav.Link>
 
-       <Nav.Link><NavLink exact={true} activeStyle={{color:"deeppink"}} className="logoClass"  to="/Cart"> <FontAwesomeIcon icon={faShoppingBag}  />    </NavLink></Nav.Link>
+      
+
+        <Nav.Link><NavLink exact={true} activeStyle={{color:"deeppink"}} className="logoClass"  to="/Cart"> <FontAwesomeIcon icon={faShoppingBag}  />   <span  className="logoClass2" >{cartItems.length}</span>     </NavLink> </Nav.Link>    
+
+        
+         
 
 
        {isAuthenticated !==true ?
-        <Nav.Link><NavLink exact={true} activeStyle={{color:"deeppink"}} className={changed.navBarLetter}  to="/login"> LOGIN    </NavLink></Nav.Link> :""
+
+       ( <Nav.Link><NavLink exact={true} activeStyle={{color:"deeppink"}} className={changed.navBarLetter}  to="/login"> LOGIN    </NavLink></Nav.Link>
+       
+
+       ) :""
 
       }
 

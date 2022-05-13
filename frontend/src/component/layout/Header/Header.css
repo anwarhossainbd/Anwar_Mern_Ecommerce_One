@@ -70,6 +70,16 @@
 .logoClass{
     font-weight: 700;
     font-size: 20px;
+    text-decoration: none;
+}
+
+.logoClass2{
+   color: red;
+  font-size: 17px;
+  font-weight: 800;
+  background-color: white;
+  padding: 3px 10px;
+  border-radius: 50%;
 }
 
 .SecondDiv{
